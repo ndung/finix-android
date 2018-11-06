@@ -1,0 +1,165 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal|top"
+    android:orientation="vertical"
+    android:background="@drawable/wallet_bg">>
+
+
+    <ImageView
+        android:layout_gravity="left"
+        android:layout_width="135dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="74.3dp"
+        android:layout_marginLeft="26.3dp"
+        android:src="@drawable/group" />
+
+    <RelativeLayout
+        android:id="@+id/panelLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/input_layout_pin">
+
+            <id.co.icg.reload.ui.customfonts.EditText_Roboto_Regular
+                android:id="@+id/et_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_phone"
+                android:drawablePadding="16dp"
+                android:ems="15"
+                android:hint="@string/txtID">
+
+                <requestFocus />
+            </id.co.icg.reload.ui.customfonts.EditText_Roboto_Regular>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_pin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/pwd_pannel"
+            app:passwordToggleEnabled="false">
+
+            <id.co.icg.reload.ui.customfonts.EditText_Roboto_Regular
+                android:id="@+id/et_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_pwd"
+                android:drawablePadding="4dp"
+                android:ems="15"
+                android:hint="@string/txtPIN"
+                android:inputType="textPassword" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:layout_marginBottom="8dp"
+            android:layout_above="@+id/btn_login"
+            android:id="@+id/pwd_pannel">
+
+            <id.co.icg.reload.ui.customfonts.MyTextView_Montserrat_Regular
+                android:id="@+id/tv_remember_me"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:text="@string/remember_me" />
+
+            <Switch
+                android:id="@+id/mySwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_toRightOf="@+id/tv_remember_me" />
+
+            <id.co.icg.reload.ui.customfonts.MyTextView_Montserrat_Regular
+                android:id="@+id/lblLupapassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:clickable="true"
+                android:onClick="onLoginPhone"
+                android:text="@string/forget_password" />
+        </RelativeLayout>
+
+        <id.co.icg.reload.ui.customfonts.Button_Roboto_Medium
+            android:layout_marginTop="15.7dp"
+            android:id="@+id/btn_login"
+            android:layout_above="@+id/tv_sign_up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:elevation="1dp"
+            android:background="@drawable/signin_rect"
+            android:gravity="center_horizontal"
+            android:fontFamily="sans-serif"
+            android:textStyle="normal"
+            android:paddingBottom="15.7dp"
+            android:paddingTop="15.7dp"
+            android:layout_marginRight="26.3dp"
+            android:layout_marginLeft="26.3dp"
+            android:textColor="@color/bg_blue"
+            android:letterSpacing="0.1"
+            android:text="SIGN IN"/>
+
+        <LinearLayout
+            android:id="@+id/tv_sign_up"
+            android:layout_marginTop="31.4dp"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <id.co.icg.reload.ui.customfonts.MyTextView_Montserrat_Medium
+                android:id="@+id/tv_register"
+                android:paddingRight="4dp"
+                android:layout_marginBottom="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_weight="1"
+                android:onClick="onLoginPhone"
+                android:textSize="13.3sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="normal"
+                android:textColor="@color/black_txt_Color"
+                android:gravity="center_horizontal"
+                android:text="Pengguna baru?"
+                android:textAlignment="textEnd"
+                tools:ignore="RtlCompat" />
+
+            <id.co.icg.reload.ui.customfonts.MyTextView_Montserrat_Medium
+                android:id="@+id/tv_sign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:onClick="onLoginPhone"
+                android:textSize="13.3sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="normal"
+                android:textColor="@color/bg_blue"
+                android:gravity="center_horizontal"
+                android:text="Daftar sekarang"
+                android:textAlignment="textStart"
+                tools:ignore="RtlCompat" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

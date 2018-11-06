@@ -1,10 +1,11 @@
-package id.go.lipi.informatika.woodid.xylarium.client;
+package id.co.icg.reload.client;
 
 import android.content.Context;
 
-import id.go.lipi.informatika.woodid.xylarium.client.service.AssessmentService;
-import id.go.lipi.informatika.woodid.xylarium.client.service.AuthService;
-import id.go.lipi.informatika.woodid.xylarium.client.service.InboxService;
+import id.co.icg.reload.client.service.AuthService;
+import id.co.icg.reload.client.service.HistoryService;
+import id.co.icg.reload.client.service.TopupService;
+import id.co.icg.reload.client.service.TransactionService;
 
 public class ApiUtils {
 
@@ -12,11 +13,15 @@ public class ApiUtils {
         return RetrofitClient.getClient(context).create(AuthService.class);
     }
 
-    public static InboxService InboxService(Context context){
-        return RetrofitClient.getClient(context).create(InboxService.class);
+    public static TopupService TopupService(Context context){
+        return RetrofitClient.getClient(context).create(TopupService.class);
     }
 
-    public static AssessmentService AssessmentService(Context context){
-        return RetrofitClient.getClient(context).create(AssessmentService.class);
+    public static TransactionService TransactionService(Context context){
+        return RetrofitClient.getClient(context).create(TransactionService.class);
+    }
+
+    public static HistoryService HistoryService(Context context){
+        return RetrofitClient.getClient(context).create(HistoryService.class);
     }
 }

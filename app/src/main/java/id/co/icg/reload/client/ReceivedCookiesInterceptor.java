@@ -1,4 +1,4 @@
-package id.go.lipi.informatika.woodid.xylarium.client;
+package id.co.icg.reload.client;
 
 import android.content.Context;
 import android.content.SharedPreferences;

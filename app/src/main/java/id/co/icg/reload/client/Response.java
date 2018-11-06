@@ -1,4 +1,4 @@
-package id.go.lipi.informatika.woodid.xylarium.client;
+package id.co.icg.reload.client;
 
 public class Response {
     Object data;

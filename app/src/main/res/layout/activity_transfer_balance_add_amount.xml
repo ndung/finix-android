@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f6f6f6">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar_transacation" />
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="64dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11.7dp"
+                    android:background="@color/white"
+                    android:elevation="1dp"
+                    android:orientation="horizontal"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="12dp">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="11.7dp"
+                        android:layout_marginStart="11.7dp">
+
+                        <ImageView
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:src="@drawable/blue_circle" />
+
+                        <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
+                            android:id="@+id/tv_user_initials"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="18.3sp" />
+
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
+                            android:id="@+id/tv_user_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/text_black"
+                            android:textSize="15sp" />
+
+                        <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
+                            android:id="@+id/tv_mobile_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:text=""
+                            android:textColor="@color/text_gray"
+                            android:textSize="11.7sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11.7dp"
+                    android:background="@color/white"
+                    android:elevation="1dp"
+                    android:orientation="horizontal"
+                    android:paddingBottom="25dp"
+                    android:paddingTop="25dp">
+
+                    <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Medium
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="23dp"
+                        android:layout_marginStart="23dp"
+                        android:text="@string/dollar_sign"
+                        android:textColor="@color/text_black"
+                        android:textSize="18.3sp" />
+
+                    <id.co.icg.reload.ui.customfonts.EditText_Roboto_Regular
+                        android:id="@+id/tv_amount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10.7dp"
+                        android:layout_marginStart="10.7dp"
+                        android:background="@color/white"
+                        android:hint="@string/enter_amt"
+                        android:textColor="@color/text_gray"
+                        android:textSize="18.3sp" />
+
+                </LinearLayout>
+
+                <id.co.icg.reload.ui.customfonts.EditText_Roboto_Regular
+                    android:id="@+id/tv_beneficiary_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11.7dp"
+                    android:background="@color/white"
+                    android:hint="@string/write_a_msg"
+                    android:paddingBottom="28.7dp"
+                    android:paddingLeft="11.7dp"
+                    android:paddingStart="11.7dp"
+                    android:paddingTop="13.3dp" />
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
+
+    <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
+        android:id="@+id/tv_send"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
+        android:text="@string/send"
+        android:letterSpacing="0.1"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+</RelativeLayout>

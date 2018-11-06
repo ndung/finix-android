@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f6f6f6"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_transacation"/>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/ll_set_pdf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="2dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="1dp"
+        android:layout_marginTop="11.7dp"
+        android:layout_marginEnd="11.7dp"
+        android:layout_marginStart="11.7dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="11.7dp"
+            android:layout_marginBottom="11.7dp"
+            android:layout_marginEnd="13.3dp"
+            android:layout_marginStart="11.7dp"
+            android:layout_marginRight="13.3dp"
+            android:layout_marginLeft="11.7dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+
+                <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Set PDF as Default"
+                    android:textColor="@color/text_black"
+                    android:textSize="15sp"/>
+
+                <id.co.icg.reload.ui.customfonts.MyTextView_Montserrat_Regular
+                    android:id="@+id/tv_pdf_default"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/text_black"
+                    android:textSize="11.7sp"
+                    android:layout_marginTop="10.3dp"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/account_icon"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/ll_set_bluetooth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="2dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="1dp"
+        android:layout_marginTop="11.7dp"
+        android:layout_marginEnd="11.7dp"
+        android:layout_marginStart="11.7dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="11.7dp"
+            android:layout_marginBottom="11.7dp"
+            android:layout_marginEnd="13.3dp"
+            android:layout_marginStart="11.7dp"
+            android:layout_marginRight="13.3dp"
+            android:layout_marginLeft="11.7dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+
+                <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Connect and Set BT Device as Default"
+                    android:textColor="@color/text_black"
+                    android:textSize="15sp"/>
+
+                <id.co.icg.reload.ui.customfonts.MyTextView_Montserrat_Regular
+                    android:id="@+id/tv_bluetooth_default"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/text_gray"
+                    android:textSize="11.7sp"
+                    android:layout_marginTop="9.7dp"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bankicon"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/ll_test_bluetooth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="2dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="1dp"
+        android:layout_marginTop="11.7dp"
+        android:layout_marginEnd="11.7dp"
+        android:layout_marginStart="11.7dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="11.7dp"
+            android:layout_marginBottom="11.7dp"
+            android:layout_marginEnd="13.3dp"
+            android:layout_marginStart="11.7dp"
+            android:layout_marginRight="13.3dp"
+            android:layout_marginLeft="11.7dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+
+                <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Test Bluetooth Printer"
+                    android:textColor="@color/text_black"
+                    android:textSize="15sp"/>
+
+                <id.co.icg.reload.ui.customfonts.MyTextView_Montserrat_Regular
+                    android:id="@+id/tv_bluetooth_printer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/text_gray"
+                    android:textSize="11.7sp"
+                    android:layout_marginTop="9.7dp"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/usericon"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home_icon"
+        app:showAsAction="always|withText"
+        android:title="Beranda" />
+
+    <item
+        android:id="@+id/navigation_history"
+        android:icon="@drawable/transaction_icon"
+        app:showAsAction="always|withText"
+        android:title="Transaksi" />
+
+
+    <item
+        android:id="@+id/navigation_downlines"
+        android:icon="@drawable/user"
+        app:showAsAction="always|withText"
+        android:title="Agen" />
+
+    <item
+        android:id="@+id/navigation_prices"
+        android:icon="@drawable/offers"
+        app:showAsAction="always|withText"
+        android:title="Harga" />
+
+    <item
+        android:id="@+id/navigation_other"
+        android:icon="@drawable/accounts_icon"
+        app:showAsAction="always|withText"
+        android:title="Akun" />
+
+</menu>

@@ -1,4 +1,4 @@
-package id.go.lipi.informatika.woodid.xylarium.client;// Original written by tsuharesu
+package id.co.icg.reload.client;// Original written by tsuharesu
 // Adapted to create a "drop it in and watch it work" approach by Nikhil Jha.
 // Just add your package statement and drop it in the folder with all your other classes.
 
@@ -8,7 +8,7 @@ import android.preference.PreferenceManager;
 import java.io.IOException;
 import java.util.HashSet;
 
-import id.go.lipi.informatika.woodid.xylarium.util.Static;
+import id.co.icg.reload.util.Static;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;

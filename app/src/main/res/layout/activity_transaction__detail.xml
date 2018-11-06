@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f6f6f6">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar_transacation" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="37dp"
+                android:layout_marginEnd="11.7dp"
+                android:layout_marginStart="11.7dp"
+                android:layout_marginTop="11.7dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="2dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16.7dp"
+                        android:layout_marginTop="8.7dp"
+                        android:text=""
+                        android:textColor="@color/text_gray"
+                        android:textSize="11.7sp"
+                        android:layout_marginLeft="16.7dp" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginBottom="10.7dp"
+                        android:layout_marginTop="7.3dp"
+                        android:src="@drawable/dashed_line"
+                        android:layerType="software"/>
+
+                    <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16.3dp"
+                        android:text="@string/trans_amount"
+                        android:textColor="@color/text_gray"
+                        android:textSize="11.7sp"
+                        android:layout_marginLeft="16.3dp" />
+
+                    <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16.7dp"
+                        android:layout_marginTop="7dp"
+                        android:text="121"
+                        android:textColor="@color/trans_text_black"
+                        android:textSize="15sp"
+                        android:layout_marginLeft="16.7dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="11.7dp"
+                        android:layout_marginTop="6.7dp"
+                        android:background="@color/view_gray" />
+
+                    <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16.3dp"
+                        android:text="@string/trans_id"
+                        android:textColor="@color/text_gray"
+                        android:textSize="11.7sp"
+                        android:layout_marginLeft="16.3dp" />
+
+                    <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16.7dp"
+                        android:layout_marginTop="7dp"
+                        android:text="sdsd"
+                        android:textColor="@color/trans_text_black"
+                        android:textSize="15sp"
+                        android:layout_marginLeft="16.7dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="11.7dp"
+                        android:layout_marginTop="6.7dp"
+                        android:background="@color/view_gray" />
+
+
+                    <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16.3dp"
+                        android:text="@string/trans_description"
+                        android:textColor="@color/text_gray"
+                        android:textSize="11.7sp"
+                        android:layout_marginLeft="16.3dp" />
+
+                    <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16.7dp"
+                        android:layout_marginTop="7dp"
+                        android:text=""
+                        android:textColor="@color/trans_text_black"
+                        android:textSize="15sp"
+                        android:layout_marginLeft="16.7dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="11.7dp"
+                        android:layout_marginTop="6.7dp"
+                        android:background="@color/view_gray" />
+
+
+                    <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16.3dp"
+                        android:text="@string/account"
+                        android:textColor="@color/text_gray"
+                        android:textSize="11.7sp"
+                        android:layout_marginLeft="16.3dp" />
+
+                    <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16.7dp"
+                        android:layout_marginTop="7dp"
+                        android:text=""
+                        android:textColor="@color/trans_text_black"
+                        android:textSize="15sp"
+                        android:layout_marginLeft="16.7dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="44.7dp"
+                        android:layout_marginTop="6.7dp"
+                        android:background="@color/view_gray" />
+
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_marginEnd="26.3dp"
+                android:elevation="4dp"
+                android:src="@drawable/money_symbol"
+                android:layout_marginRight="26.3dp" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:elevation="1dp"
+        android:id="@+id/remarks"
+        android:background="@color/white">
+
+        <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_remarks"
+            android:textColor="@color/text_gray"
+            android:textSize="15sp"
+            android:layout_marginStart="16.7dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:layout_marginLeft="16.7dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="15dp"
+        android:layout_marginTop="15dp">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11.7dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="11.7dp">
+
+            <ImageView
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:src="@drawable/blue_circle"/>
+
+            <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18.3sp"
+                android:id="@+id/tv_initial"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:text=""/>
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp">
+
+            <id.co.icg.reload.ui.customfonts.TextViewSFProDisplayLight
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/tv_account"
+                android:textColor="@color/text_black"
+                android:textSize="11.7sp"/>
+
+            <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Light
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saldo"
+                android:id="@+id/tv_balance"
+                android:textColor="@color/text_gray"
+                android:textSize="11.7sp"
+                android:layout_marginTop="7dp"/>
+
+            <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Light
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Joined Date"
+                android:id="@+id/tv_status"
+                android:textColor="@color/text_gray"
+                android:textSize="11.7sp"
+                android:layout_marginTop="7dp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="11.7dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginRight="11.7dp">
+
+            <ImageView
+                android:id="@+id/iv_transfer"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/transfer"/>
+
+            <ImageView
+                android:id="@+id/iv_delete"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:paddingTop="1dp"
+                android:paddingBottom="1dp"
+                android:src="@drawable/delete_user"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/view_gray"/>
+
+</LinearLayout>

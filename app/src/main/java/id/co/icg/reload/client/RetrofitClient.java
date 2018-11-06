@@ -1,8 +1,7 @@
-package id.go.lipi.informatika.woodid.xylarium.client;
+package id.co.icg.reload.client;
 
 
 import android.content.Context;
-import android.preference.Preference;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -11,8 +10,8 @@ import com.google.gson.GsonBuilder;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import id.go.lipi.informatika.woodid.xylarium.util.Preferences;
-import id.go.lipi.informatika.woodid.xylarium.util.Static;
+import id.co.icg.reload.util.Preferences;
+import id.co.icg.reload.util.Static;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

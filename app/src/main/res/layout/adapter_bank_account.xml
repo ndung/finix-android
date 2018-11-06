@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:elevation="1dp">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11.7dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="11.7dp">
+
+            <ImageView
+                android:id="@+id/iv_bank"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:src="@drawable/blue_circle"/>
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="1dp"
+            android:orientation="vertical"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="11.7dp"
+                android:layout_marginStart="11.7dp"
+                android:layout_marginEnd="16.7dp"
+                android:layout_marginLeft="11.7dp"
+                android:layout_marginRight="16.7dp">
+
+                <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
+                    android:id="@+id/tv_account_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="4970422621"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"
+                    android:textColor="@color/text_gray"/>
+
+                <net.igenius.customcheckbox.CustomCheckBox
+                     android:id="@+id/cb_c"
+                    android:layout_width="17.7dp"
+                    android:layout_height="17.7dp"
+                    android:layout_gravity="center"
+                    app:stroke_width="1dp"
+                    app:color_tick="@color/white"
+                    app:color_checked="#2dbc61"
+                    app:color_unchecked_stroke="@color/text_gray"/>
+
+            </LinearLayout>
+
+
+            <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
+                android:id="@+id/tv_account_name"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:text="Lindung Parningotan Manik"
+                android:textSize="11.7sp"
+                android:textColor="@color/text_black"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/view_gray"
+                android:layout_marginTop="11.7dp"
+                android:layout_marginBottom="11.7dp"
+                android:layout_marginStart="11.7dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginLeft="11.7dp"
+                android:layout_marginRight="12dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

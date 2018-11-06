@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/round_background_light"
+    android:orientation="vertical"
+    android:padding="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Akun anda belum diverifikasi" />
+
+    <id.co.icg.reload.ui.customfonts.Button_Roboto_Medium
+        android:id="@+id/btn_verify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:elevation="1dp"
+        android:background="@drawable/signin_rect"
+        android:gravity="center_horizontal"
+        android:fontFamily="sans-serif"
+        android:textStyle="normal"
+        android:paddingBottom="15.7dp"
+        android:paddingTop="15.7dp"
+        android:textColor="@color/bg_blue"
+        android:letterSpacing="0.1"
+        android:text="VERIFIKASI AKUN"/>
+
+</LinearLayout>

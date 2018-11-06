@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "460385030755",
+    "firebase_url": "https://ireloadreborn.firebaseio.com",
+    "project_id": "ireloadreborn",
+    "storage_bucket": "ireloadreborn.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:460385030755:android:ec4fb5168f1a8483",
+        "android_client_info": {
+          "package_name": "id.co.icg.reload"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "460385030755-s0e74c56c7154ahnv20jht2rv8cafo7n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFi7mT1FwGQ7gPP8w1yC13lFkq_2wDNa0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
