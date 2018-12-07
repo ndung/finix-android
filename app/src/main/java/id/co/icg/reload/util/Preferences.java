@@ -43,19 +43,17 @@ public class Preferences {
         editor = preferences.edit();
     }
 
-    public void addNotification(String notification) {
+    public static void addNotification(Context context, String notification) {
 
         // get old notifications
-        String oldNotifications = getNotifications();
+        String oldNotifications = getNotifications(context);
 
         if (oldNotifications != null) {
             oldNotifications += "|" + notification;
         } else {
             oldNotifications = notification;
         }
-
-        editor.putString(KEY_NOTIFICATIONS, oldNotifications);
-        editor.commit();
+        putString(context, KEY_NOTIFICATIONS, oldNotifications);
     }
 
     public void setUserName(String userName){
@@ -96,25 +94,20 @@ public class Preferences {
         return preferences.getString(KEY_DEFAULT_PRINTER, "pdf");
     }
 
-    public String getNotifications() {
-        return preferences.getString(KEY_NOTIFICATIONS, null);
+    public static String getNotifications(Context context) {
+        return getString(context, KEY_NOTIFICATIONS);
     }
 
     public String getEncryptionKey(){
         return preferences.getString(ENCRYPTION_KEY, "");
     }
 
-    public void setUnreadMessage(Boolean param){
-        editor.putBoolean(HAS_UNREAD_MESSAGE, param);
-        editor.commit();
+    public static void setUnreadMessage(Context context, Boolean param){
+        putBoolean(context, HAS_UNREAD_MESSAGE, param);
     }
 
-    public Boolean hasUnreadMessage(){
-        try {
-            return preferences.getBoolean(HAS_UNREAD_MESSAGE, Boolean.FALSE);
-        }catch(Exception ex){
-            return null;
-        }
+    public static Boolean hasUnreadMessage(Context context){
+        return getBoolean(context, HAS_UNREAD_MESSAGE);
     }
 
     public Boolean isPasswordRemembered(){

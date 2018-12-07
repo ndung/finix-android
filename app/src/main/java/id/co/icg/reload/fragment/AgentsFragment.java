@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
@@ -24,6 +25,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -73,6 +76,8 @@ public class AgentsFragment extends BaseFragment{
     private ImageView ivSort;
 
     private Reseller rs;
+
+    DialogUtils dialogUtils;
 
     private static final String TAG = AgentsFragment.class.toString();
 
@@ -139,13 +144,29 @@ public class AgentsFragment extends BaseFragment{
 
         ivAdd.setOnClickListener(v -> addDownlines());
 
+        dialogUtils = new DialogUtils(getActivity());
+
+        ivSort.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog dialog = dialogUtils.showDialog("Urut Berdasarkan", R.layout.dialog_sort_agent, true);
+
+                final RadioGroup radioGroup = dialog.findViewById(R.id.rg_sort);
+                radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+
+                    }
+                });
+            }
+        });
+
         return view;
     }
 
     private EditText editText;
 
     private void addDownlines(){
-        DialogUtils dialogUtils = new DialogUtils(getActivity());
 
         if (rs.getVerified().equals("Y")) {
             final Dialog dialog = dialogUtils.createDialog(R.layout.dialog_add_new_agent, true);

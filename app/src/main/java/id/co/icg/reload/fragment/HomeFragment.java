@@ -2,6 +2,7 @@ package id.co.icg.reload.fragment;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -29,24 +31,31 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+import id.co.icg.reload.MyFcmListenerService;
 import id.co.icg.reload.R;
 import id.co.icg.reload.activity.AccountInformationActivity;
 import id.co.icg.reload.activity.AddBalanceActivity;
+import id.co.icg.reload.activity.ConvertToBalanceActivity;
 import id.co.icg.reload.activity.ElectricInquiryActivity;
 import id.co.icg.reload.activity.InsuranceInquiryActivity;
 import id.co.icg.reload.activity.MobileDataRechargeActivity;
 import id.co.icg.reload.activity.MobileRechargeInquiryActivity;
 import id.co.icg.reload.activity.OtherBillInquiryActivity;
+import id.co.icg.reload.activity.OtherMenuActivity;
 import id.co.icg.reload.activity.PendingBalanceActivity;
 import id.co.icg.reload.activity.PhoneBillInquiryActivity;
+import id.co.icg.reload.activity.RedeemPointsActivity;
 import id.co.icg.reload.activity.TransferBalanceActivity;
 import id.co.icg.reload.activity.WaterBillInquiryActivity;
 import id.co.icg.reload.client.ApiUtils;
 import id.co.icg.reload.client.Response;
 import id.co.icg.reload.client.service.AuthService;
+import id.co.icg.reload.client.service.RedeemService;
 import id.co.icg.reload.client.service.TopupService;
 import id.co.icg.reload.client.service.TransactionService;
+import id.co.icg.reload.model.Biller;
 import id.co.icg.reload.model.Deposit;
+import id.co.icg.reload.model.Gift;
 import id.co.icg.reload.model.PendingBalance;
 import id.co.icg.reload.model.Product;
 import id.co.icg.reload.model.Reseller;
@@ -68,9 +77,12 @@ public class HomeFragment extends BaseFragment {
     private AuthService authService;
     private TopupService topupService;
     private TransactionService transactionService;
+    private RedeemService redeemService;
     private SwipeRefreshLayout swipeRefreshLayout;
 
     private static final String TAG = HomeFragment.class.toString();
+
+    private ImageView ivNotification;
 
     @Nullable
     @Override
@@ -80,6 +92,7 @@ public class HomeFragment extends BaseFragment {
         authService = ApiUtils.AuthService(getActivity());
         topupService = ApiUtils.TopupService(getActivity());
         transactionService = ApiUtils.TransactionService(getActivity());
+        redeemService = ApiUtils.RedeemService(getActivity());
 
         swipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout);
         rs = Preferences.getUser(getActivity());
@@ -87,6 +100,9 @@ public class HomeFragment extends BaseFragment {
         tvTrxFee = view.findViewById(R.id.tv_trx_fee);
         tvPoint = view.findViewById(R.id.tv_point);
         tvLiabilities = view.findViewById(R.id.tv_liabilities);
+        ivNotification = view.findViewById(R.id.iv_notification);
+
+        ivNotification.setOnClickListener(v -> startChatActivity());
 
         LinearLayout layoutBalance = view.findViewById(R.id.layout_balance);
         layoutBalance.setOnClickListener(v -> startAddBalanceActivity());
@@ -118,18 +134,14 @@ public class HomeFragment extends BaseFragment {
         LinearLayout layoutInsurance = view.findViewById(R.id.layout_insurance);
         layoutInsurance.setOnClickListener(v -> startInsuranceActivity());
 
-        /**LinearLayout layoutTelkomBill = view.findViewById(R.id.layout_telkom_bill);
-        layoutTelkomBill.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) { startTelkomBillActivity();
-            }
-        });*/
-
         LinearLayout layoutWaterBill = view.findViewById(R.id.layout_water_bill);
         layoutWaterBill.setOnClickListener(v -> startWaterBillActivity());
 
         LinearLayout layoutTransfer = view.findViewById(R.id.layout_transfer);
         layoutTransfer.setOnClickListener(v -> startTransferActivity());
+
+        LinearLayout layoutOther = view.findViewById(R.id.layout_other);
+        layoutOther.setOnClickListener(v -> startOtherMenuActivity());
 
         slider = view.findViewById(R.id.slider);
         HashMap<String, String> url_maps = new HashMap<>();
@@ -140,6 +152,8 @@ public class HomeFragment extends BaseFragment {
 
         refreshPanel();
 
+        getActivity().registerReceiver(myReceiver, new IntentFilter(MyFcmListenerService.INTENT_FILTER));
+
         swipeRefreshLayout.setOnRefreshListener(() -> refreshInfo());
         return view;
     }
@@ -148,6 +162,12 @@ public class HomeFragment extends BaseFragment {
     public void onResume() {
         super.onResume();
         refreshInfo();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        getActivity().unregisterReceiver(myReceiver);
     }
 
     private void refreshPanel(){
@@ -245,42 +265,96 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void convertToBalance(){
-        DialogUtils dialogUtils = new DialogUtils(getActivity());
-        final Dialog dialog = dialogUtils.createDialog(R.layout.dialog_account_not_verified, true);
-        TextView tvDescription = dialog.findViewById(R.id.tv_description);
-        tvDescription.setText("Untuk menukarkan komisi ke saldo, akun kamu harus diverifikasi terlebih dahulu");
-        Button btnVerify = dialog.findViewById(R.id.btn_verify);
-        btnVerify.setOnClickListener(v -> {
-            dialog.dismiss();
-            startAccountInformationActivity();
-        });
-        dialog.show();
+        Reseller user = Preferences.getUser(getActivity());
+        //if (user.getVerified().equals("Y")){
+        if (true){
+            Intent intent = new Intent(getActivity(), ConvertToBalanceActivity.class);
+            startActivity(intent);
+        }else {
+            DialogUtils dialogUtils = new DialogUtils(getActivity());
+            final Dialog dialog = dialogUtils.createDialog(R.layout.dialog_account_not_verified, true);
+            TextView tvDescription = dialog.findViewById(R.id.tv_description);
+            tvDescription.setText("Untuk menukarkan komisi ke saldo, akun kamu harus diverifikasi terlebih dahulu");
+            Button btnVerify = dialog.findViewById(R.id.btn_verify);
+            btnVerify.setOnClickListener(v -> {
+                dialog.dismiss();
+                startAccountInformationActivity();
+            });
+            dialog.show();
+        }
     }
 
     private void redeemPoints(){
-        DialogUtils dialogUtils = new DialogUtils(getActivity());
-        final Dialog dialog = dialogUtils.createDialog(R.layout.dialog_account_not_verified, true);
-        TextView tvDescription = dialog.findViewById(R.id.tv_description);
-        tvDescription.setText("Untuk menukarkan poin ke hadiah, akun kamu harus diverifikasi terlebih dahulu");
-        Button btnVerify = dialog.findViewById(R.id.btn_verify);
-        btnVerify.setOnClickListener(v -> {
-            dialog.dismiss();
-            startAccountInformationActivity();
-        });
-        dialog.show();
+        Reseller user = Preferences.getUser(getActivity());
+        //if (user.getVerified().equals("Y")){
+        if (true){
+            showPleaseWaitDialog();
+
+            redeemService.getGifts().enqueue(new Callback<Response>() {
+
+                @Override
+                public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+                    dissmissPleaseWaitDialog();
+                    try {
+                        if (response.isSuccessful()) {
+                            Gson gson = new GsonBuilder().registerTypeAdapter(Date.class, new GsonDeserializer()).create();
+                            JsonObject jsonObject = gson.toJsonTree(response.body()).getAsJsonObject();
+
+                            List<Gift> gifts = gson.fromJson(jsonObject.getAsJsonArray("data"), new TypeToken<List<Gift>>() {
+                            }.getType());
+                            if (gifts != null && gifts.size() > 0) {
+                                Intent intent = new Intent(getActivity(), RedeemPointsActivity.class);
+                                intent.putExtra("gifts", (Serializable) gifts);
+                                startActivity(intent);
+                            }else{
+                                showMessage("Tidak ada hadiah yang dapat ditukarkan saat ini");
+                            }
+                        } else if (response.errorBody() != null) {
+                            JSONObject jObjError = new JSONObject(response.errorBody().string().trim());
+                            showMessage(jObjError.getString("message"));
+                        } else {
+                            showMessage(Static.SOMETHING_WRONG);
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Response> call, Throwable t) {
+                    dissmissPleaseWaitDialog();
+                    showMessage(t.getMessage());
+                }
+            });
+        }else {
+            DialogUtils dialogUtils = new DialogUtils(getActivity());
+            final Dialog dialog = dialogUtils.createDialog(R.layout.dialog_account_not_verified, true);
+            TextView tvDescription = dialog.findViewById(R.id.tv_description);
+            tvDescription.setText("Untuk menukarkan poin ke hadiah, akun kamu harus diverifikasi terlebih dahulu");
+            Button btnVerify = dialog.findViewById(R.id.btn_verify);
+            btnVerify.setOnClickListener(v -> {
+                dialog.dismiss();
+                startAccountInformationActivity();
+            });
+            dialog.show();
+        }
     }
 
-    private void creditRequest(){
-        DialogUtils dialogUtils = new DialogUtils(getActivity());
-        final Dialog dialog = dialogUtils.createDialog(R.layout.dialog_account_not_verified, true);
-        TextView tvDescription = dialog.findViewById(R.id.tv_description);
-        tvDescription.setText("Untuk mengajukan pinjaman saldo, akun kamu harus diverifikasi terlebih dahulu");
-        Button btnVerify = dialog.findViewById(R.id.btn_verify);
-        btnVerify.setOnClickListener(v -> {
-            dialog.dismiss();
-            startAccountInformationActivity();
-        });
-        dialog.show();
+    private void creditRequest(){Reseller user = Preferences.getUser(getActivity());
+        if (user.getVerified().equals("Y")){
+            showMessage("Mohon maaf, untuk sementara fitur ini tidak tersedia");
+        }else {
+            DialogUtils dialogUtils = new DialogUtils(getActivity());
+            final Dialog dialog = dialogUtils.createDialog(R.layout.dialog_account_not_verified, true);
+            TextView tvDescription = dialog.findViewById(R.id.tv_description);
+            tvDescription.setText("Untuk mengajukan pinjaman saldo, akun kamu harus diverifikasi terlebih dahulu");
+            Button btnVerify = dialog.findViewById(R.id.btn_verify);
+            btnVerify.setOnClickListener(v -> {
+                dialog.dismiss();
+                startAccountInformationActivity();
+            });
+            dialog.show();
+        }
     }
 
     private void startMobileRechargeActivity() {
@@ -465,6 +539,47 @@ public class HomeFragment extends BaseFragment {
 
     }
 
+    private void startOtherMenuActivity(){
+        showPleaseWaitDialog();
+
+        transactionService.getBillersByCategory(4).enqueue(new Callback<Response>() {
+
+            @Override
+            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+                dissmissPleaseWaitDialog();
+                try {
+                    if (response.isSuccessful()) {
+                        Gson gson = new GsonBuilder().registerTypeAdapter(Date.class, new GsonDeserializer()).create();
+                        JsonObject jsonObject = gson.toJsonTree(response.body()).getAsJsonObject();
+
+                        List<Biller> list = gson.fromJson(jsonObject.getAsJsonArray("data"), new TypeToken<List<Biller>>() {
+                        }.getType());
+                        if (list != null && list.size() > 0) {
+                            Intent intent = new Intent(getActivity(), OtherMenuActivity.class);
+                            intent.putExtra("billers", (Serializable) list);
+                            startActivity(intent);
+                        }else{
+                            showMessage("Tidak ada produk yang aktif saat ini");
+                        }
+                    } else if (response.errorBody() != null) {
+                        JSONObject jObjError = new JSONObject(response.errorBody().string().trim());
+                        showMessage(jObjError.getString("message"));
+                    } else {
+                        showMessage(Static.SOMETHING_WRONG);
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Response> call, Throwable t) {
+                dissmissPleaseWaitDialog();
+                showMessage(t.getMessage());
+            }
+        });
+
+    }
 
     private void startTransferActivity(){
         Intent intent = new Intent(getActivity(), TransferBalanceActivity.class);
@@ -488,4 +603,6 @@ public class HomeFragment extends BaseFragment {
         intent.putExtra("model", pendingBalance);
         startActivity(intent);
     }
+
+
 }

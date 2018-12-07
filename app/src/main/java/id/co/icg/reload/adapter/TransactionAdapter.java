@@ -76,12 +76,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
             holder.tvPrice.setText("-"+decimalFormat.format(log.getDebit()));
             holder.tvPrice.setTextColor(Color.parseColor("#fd5c63"));
         }
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onItemClick(log);
-            }
-        });
+        holder.itemView.setOnClickListener(v -> listener.onItemClick(log));
     }
 
     @Override
@@ -89,7 +84,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         return logs.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
         ImageView ivIcon;
         TextView tvTime,tvDescription,tvPrice;
 

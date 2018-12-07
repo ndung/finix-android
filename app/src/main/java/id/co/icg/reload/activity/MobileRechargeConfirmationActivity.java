@@ -53,19 +53,11 @@ public class MobileRechargeConfirmationActivity extends BaseActivity {
         tvPrice.setText(decimalFormat.format(product.getBuyingPrice()));
         tvTrxNo.setText(trxNo);
 
-        ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        ivBack.setOnClickListener(v -> finish());
 
         tvPay = findViewById(R.id.tv_pay);
-        tvPay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        tvPay.setOnClickListener(v -> {
 
-            }
         });
     }
 

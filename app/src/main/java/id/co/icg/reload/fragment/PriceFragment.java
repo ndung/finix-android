@@ -10,6 +10,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -204,6 +205,7 @@ public class PriceFragment extends BaseFragment{
         rvPrices = view.findViewById(R.id.rvPrices);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         rvPrices.setLayoutManager(layoutManager);
+        rvPrices.setAdapter(priceAdapter);
         rvPrices.setItemAnimator(new DefaultItemAnimator());
 
         nestedScrollView.setOnScrollChangeListener((NestedScrollView.OnScrollChangeListener) (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
@@ -248,6 +250,7 @@ public class PriceFragment extends BaseFragment{
 
     private void loadMore() {
         if (!isLastPage) {
+            showPleaseWaitDialog();
             List<Product> productList = productMaps.get(currentCategory);
             currentPage += 1;
 
@@ -264,6 +267,7 @@ public class PriceFragment extends BaseFragment{
             }
             priceAdapter.notifyDataSetChanged();
             if (currentPage == TOTAL_PAGES) isLastPage = true;
+            dissmissPleaseWaitDialog();
         }
     }
 
@@ -280,6 +284,7 @@ public class PriceFragment extends BaseFragment{
         if (currentPage*PAGE<productList.size()){
             size = currentPage*PAGE;
         }
+
         for (int i =((currentPage-1)*PAGE);i<size;i++){
             Product product = productList.get(i);
             list.add(product);

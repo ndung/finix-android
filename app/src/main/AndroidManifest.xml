@@ -56,7 +56,7 @@
         <activity android:name=".activity.WaterBillInquiryActivity" android:windowSoftInputMode="stateVisible|adjustResize"/>
         <activity android:name=".activity.PhoneBillInquiryActivity" android:windowSoftInputMode="stateVisible|adjustResize"/>
         <activity android:name=".activity.OtherBillInquiryActivity" android:windowSoftInputMode="stateVisible|adjustResize"/>
-        <activity android:name=".activity.BillPaymentActivity" />
+        <activity android:name=".activity.OtherMenuActivity" />
         <activity android:name=".activity.PendingBalanceActivity" />
         <activity android:name=".activity.TransferBalanceActivity" />
         <activity android:name=".activity.TransferBalanceAddAmountActivity" android:windowSoftInputMode="stateVisible|adjustResize"/>
@@ -64,8 +64,21 @@
         <activity android:name=".activity.AccountInformationActivity" />
         <activity android:name=".activity.ChangePasswordActivity" android:windowSoftInputMode="stateVisible|adjustResize"/>
         <activity android:name=".activity.PrinterActivity" />
+        <activity android:name=".activity.ChatActivity" />
+        <activity android:name=".activity.RedeemPointsActivity" />
+        <activity android:name=".activity.RedeemLogActivity" />
+        <activity android:name=".activity.SettlementLogActivity" />
+        <activity android:name=".activity.DepositLogActivity" />
+        <activity android:name=".activity.OtherRechargeInquiryActivity" />
+        <activity android:name=".activity.ConvertToBalanceActivity" android:windowSoftInputMode="stateVisible|adjustResize"/>
         <activity android:name=".activity.DeviceActivity" android:theme="@android:style/Theme.Dialog"/>
 
+        <service
+            android:name=".MyFcmListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

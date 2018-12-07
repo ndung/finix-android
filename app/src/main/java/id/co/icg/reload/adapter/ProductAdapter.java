@@ -50,23 +50,20 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         final Product product = products.get(position);
         holder.tvId.setText(product.getId());
         holder.tvName.setText(product.getName());
-        holder.tvDescription.setVisibility(View.GONE);
         if (product.getDescription()!=null && !product.getDescription().isEmpty()){
-            holder.tvDescription.setVisibility(View.VISIBLE);
             holder.tvDescription.setText(product.getDescription());
+        }else{
+            holder.tvDescription.setText("");
         }
         if (!product.isSelected()){
             holder.checkBox.setChecked(false);
         }
         holder.tvPrice.setText(decimalFormat.format(product.getBuyingPrice()));
-        holder.checkBox.setOnCheckedChangeListener(new CustomCheckBox.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CustomCheckBox checkBox, boolean isChecked) {
-                if (isChecked) {
-                    boolean bool = listener.onItemClick(product);
-                    if (!bool) {
-                        holder.checkBox.setChecked(false);
-                    }
+        holder.checkBox.setOnCheckedChangeListener((checkBox, isChecked) -> {
+            if (isChecked) {
+                boolean bool = listener.onItemClick(product);
+                if (!bool) {
+                    holder.checkBox.setChecked(false);
                 }
             }
         });
@@ -77,7 +74,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         return products.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvId,tvName,tvDescription,tvPrice;
         CustomCheckBox checkBox;
         public ViewHolder(View itemView) {

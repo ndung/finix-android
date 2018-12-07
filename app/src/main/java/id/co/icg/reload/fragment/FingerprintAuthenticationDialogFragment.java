@@ -42,12 +42,7 @@ public class FingerprintAuthenticationDialogFragment extends DialogFragment impl
         getDialog().setTitle(getString(R.string.sign_in));
         View v = inflater.inflate(R.layout.dialog_fingerprint_container, container, false);
         mCancelButton = v.findViewById(R.id.cancel_button);
-        mCancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dismiss();
-            }
-        });
+        mCancelButton.setOnClickListener(view -> dismiss());
 
         mCancelButton.setText(R.string.cancel);
         mFingerprintContent = v.findViewById(R.id.fingerprint_container);

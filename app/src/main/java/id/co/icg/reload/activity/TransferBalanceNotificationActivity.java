@@ -30,12 +30,7 @@ public class TransferBalanceNotificationActivity extends BaseActivity{
         ivBack = findViewById(R.id.iv_back);
         tvTitle = findViewById(R.id.tv_title);
 
-        ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        ivBack.setOnClickListener(v -> finish());
 
         tvTitle.setText(R.string.balance_transfer);
     }

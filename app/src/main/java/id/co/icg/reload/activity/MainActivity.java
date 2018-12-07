@@ -60,7 +60,6 @@ public class MainActivity extends BaseActivity {
         currentFragment.onActivityResult(requestCode, resultCode, data);
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

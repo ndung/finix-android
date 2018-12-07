@@ -7,8 +7,7 @@
     android:layout_marginBottom="11.7dp"
     android:layout_marginStart="11.7dp"
     android:layout_marginEnd="11.7dp"
-    app:cardElevation="1dp"
-    app:cardBackgroundColor="@color/white">
+    app:cardElevation="1dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +24,7 @@
             android:padding="8dp"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/gojek"/>
+            android:src="@drawable/image"/>
 
         <LinearLayout
             android:layout_width="0dp"

@@ -19,14 +19,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        android:elevation="1dp"
         android:background="@drawable/signin_rect"
         android:gravity="center_horizontal"
         android:fontFamily="sans-serif"
         android:textStyle="normal"
         android:paddingBottom="15.7dp"
         android:paddingTop="15.7dp"
-        android:textColor="@color/bg_blue"
+        android:textColor="@color/white"
         android:letterSpacing="0.1"
         android:text="VERIFIKASI AKUN"/>
 

@@ -66,21 +66,11 @@ public class ChangePasswordActivity extends BaseActivity {
         tilOldPassword = findViewById(R.id.til_old_password);
         tilNewPassword = findViewById(R.id.til_new_password);
 
-        tilNewPassword.setHint(getString(R.string.password_hint));
+        //tilNewPassword.setHint(getString(R.string.password_hint));
 
-        tvSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changePassword(etOldPassword.getText().toString(), etNewPassword.getText().toString(), etConfirmedNewPassword.getText().toString());
-            }
-        });
+        tvSave.setOnClickListener(v -> changePassword(etOldPassword.getText().toString(), etNewPassword.getText().toString(), etConfirmedNewPassword.getText().toString()));
 
-        ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        ivBack.setOnClickListener(v -> finish());
 
     }
 

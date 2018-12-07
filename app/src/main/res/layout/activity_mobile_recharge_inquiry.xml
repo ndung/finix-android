@@ -9,7 +9,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
         android:elevation="1dp"
         android:orientation="vertical">
 
@@ -24,15 +23,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Medium
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="11.7dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="11.7dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16.7dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="Jika melakukan pembelian untuk produk dan no. telepon yang sama dalam 1 hari, gunakan no. transaksi yang lain"
+                    android:textColor="#008489"
+                    android:textSize="12.7sp" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:elevation="1dp"
                     android:background="@android:color/white"
                     android:orientation="vertical"
+                    android:paddingTop="12.3dp"
                     android:paddingLeft="24.3dp"
-                    android:paddingRight="24.3dp"
-                    android:paddingTop="24.3dp">
+                    android:paddingRight="24.3dp">
 
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/til_mobile_number"
@@ -72,9 +84,8 @@
                     android:id="@+id/rv_products"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
                     android:clipToPadding="false"
-                    android:paddingTop="10dp" />
+                    android:paddingBottom="11.7dp" />
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
 

@@ -13,14 +13,12 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
 import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -87,6 +85,8 @@ public class OtherFragment extends BaseFragment {
     private TextView tvDefaultPrinter;
     private ImageView ivVerified;
 
+    private ImageView ivNotification;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -94,6 +94,9 @@ public class OtherFragment extends BaseFragment {
         cbFingerprint = view.findViewById(R.id.cb_fingerprint);
 
         authService = ApiUtils.AuthService(getActivity());
+
+        ivNotification = view.findViewById(R.id.iv_notification);
+        ivNotification.setOnClickListener(v -> startChatActivity());
 
         mFingerprintManager = FingerprintManagerCompat.from(getActivity());
 

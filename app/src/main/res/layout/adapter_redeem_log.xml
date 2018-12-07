@@ -1,49 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_gravity="center"
-    android:gravity="center"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="3dp"
+    android:layout_marginTop="11.7dp"
+    android:layout_marginStart="11.7dp"
+    android:layout_marginEnd="11.7dp"
+    app:cardElevation="1dp">
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_gravity="center"
-        android:gravity="center"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:layout_marginStart="11.7dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="12.7dp"
+        android:layout_marginEnd="11.7dp">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/beneficiaries"
-            android:id="@+id/image"
+            android:id="@+id/iv_gift"
             android:layout_gravity="center"
-            android:layout_marginTop="37dp" />
+            android:padding="8dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/image"/>
 
-        <id.co.icg.reload.ui.customfonts.MyTextView_Montserrat_Regular
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_gravity="center">
+
+            <id.co.icg.reload.ui.customfonts.MyTextView_Montserrat_Regular
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="khki"
+                android:id="@+id/tv_gift"
+                android:textColor="@color/text_black"
+                android:textSize="13.3sp"/>
+
+            <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8.7dp"
+                android:textSize="13.3sp"
+                android:textColor="@color/text_black"
+                android:text="khgk"
+                android:id="@+id/tv_time_stamp"/>
+
+            <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Light
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8.7dp"
+                android:textSize="11.7sp"
+                android:textColor="@color/text_gray"
+                android:id="@+id/tv_description"
+                android:text="jhgvk"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="9dp"
-            android:textSize="15sp"
-            android:textColor="@color/text_black"
-            android:id="@+id/name"
-            android:text="jgvjh"/>
-        
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#edefed"
-            android:layout_marginTop="29.2dp"/>
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+            <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Light
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="khki"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:id="@+id/tv_pts"
+                android:textColor="@color/text_black"
+                android:textSize="11.7sp"/>
+
+            <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8.7dp"
+                android:textSize="13.3sp"
+                android:textColor="#008489"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:text="khgk"
+                android:id="@+id/tv_status"/>
+
+            <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Light
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8.7dp"
+                android:textSize="11.7sp"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:textColor="@color/text_gray"
+                android:text=""/>
+        </LinearLayout>
 
     </LinearLayout>
 
-    <View
-        android:layout_width="1dp"
-        android:layout_gravity="center"
-        android:layout_height="match_parent"
-        android:background="#edefed" />
-
-</LinearLayout>
+</android.support.v7.widget.CardView>

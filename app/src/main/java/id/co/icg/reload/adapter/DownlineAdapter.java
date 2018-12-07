@@ -81,19 +81,9 @@ public class DownlineAdapter extends RecyclerView.Adapter<DownlineAdapter.ViewHo
         }
         holder.tvStatus.setText(status);
 
-        holder.ivTransfer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onTransfer(rs);
-            }
-        });
+        holder.ivTransfer.setOnClickListener(v -> listener.onTransfer(rs));
 
-        holder.ivDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onDelete(rs);
-            }
-        });
+        holder.ivDelete.setOnClickListener(v -> listener.onDelete(rs));
     }
 
     @Override
@@ -101,7 +91,7 @@ public class DownlineAdapter extends RecyclerView.Adapter<DownlineAdapter.ViewHo
         return downlines.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView ivTransfer, ivDelete;
         TextView tvInitial,tvAccount,tvBalance,tvStatus;

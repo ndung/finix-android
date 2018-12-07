@@ -13,6 +13,7 @@ public class Deposit implements Serializable{
     private String stan;
     private String description;
     private String proof;
+    private int status;
 
     public Long getId() {
         return id;
@@ -76,5 +77,13 @@ public class Deposit implements Serializable{
 
     public void setProof(String proof) {
         this.proof = proof;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

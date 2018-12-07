@@ -78,19 +78,16 @@ public class MobileRechargeInquiryActivity extends BaseActivity {
         tvTitle = findViewById(R.id.tv_title);
         etMobileNumber = findViewById(R.id.et_mobile_number);
 
-        etMobileNumber.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                final int DRAWABLE_RIGHT = 2;
+        etMobileNumber.setOnTouchListener((v, event) -> {
+            final int DRAWABLE_RIGHT = 2;
 
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-                    if (event.getRawX() >= (etMobileNumber.getRight() - etMobileNumber.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
-                        pickContacts(etMobileNumber);
-                        return true;
-                    }
+            if (event.getAction() == MotionEvent.ACTION_UP) {
+                if (event.getRawX() >= (etMobileNumber.getRight() - etMobileNumber.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                    pickContacts(etMobileNumber);
+                    return true;
                 }
-                return false;
             }
+            return false;
         });
 
         spinner = findViewById(R.id.spinner);
@@ -151,12 +148,7 @@ public class MobileRechargeInquiryActivity extends BaseActivity {
             }
         });
         rvProducts = findViewById(R.id.rv_products);
-        ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        ivBack.setOnClickListener(v -> finish());
 
         tvTitle.setText(R.string.mobile_reguler_recharge);
 
@@ -166,12 +158,7 @@ public class MobileRechargeInquiryActivity extends BaseActivity {
 
         list = new ArrayList<>();
 
-        adapter = new ProductAdapter(this, list, new ProductAdapter.OnItemClickListener() {
-            @Override
-            public boolean onItemClick(Product model) {
-                return confirm(etMobileNumber.getText().toString(), model);
-            }
-        });
+        adapter = new ProductAdapter(this, list, model -> confirm(etMobileNumber.getText().toString(), model));
         rvProducts.setAdapter(adapter);
     }
 

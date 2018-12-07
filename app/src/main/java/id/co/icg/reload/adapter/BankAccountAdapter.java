@@ -75,7 +75,7 @@ public class BankAccountAdapter extends RecyclerView.Adapter<BankAccountAdapter.
         return bankAccounts.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
         ImageView ivBank;
         TextView tvAccountNo,tvAccountName;
         CustomCheckBox checkBox;

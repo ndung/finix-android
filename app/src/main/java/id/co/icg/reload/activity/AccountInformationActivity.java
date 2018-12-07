@@ -47,31 +47,19 @@ public class AccountInformationActivity extends BaseActivity{
         etEmail = findViewById(R.id.et_email);
         etBod = findViewById(R.id.et_bod);
 
-        etBod.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                showDateDialog();
-            }
-        });
+        etBod.setOnClickListener(v -> showDateDialog());
 
         cbMan = findViewById(R.id.cb_man);
-        cbMan.setOnCheckedChangeListener(new CustomCheckBox.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CustomCheckBox checkBox, boolean isChecked) {
-                if (isChecked){
-                    cbWoman.setChecked(false);
-                }
+        cbMan.setOnCheckedChangeListener((checkBox, isChecked) -> {
+            if (isChecked){
+                cbWoman.setChecked(false);
             }
         });
 
         cbWoman = findViewById(R.id.cb_woman);
-        cbWoman.setOnCheckedChangeListener(new CustomCheckBox.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CustomCheckBox checkBox, boolean isChecked) {
-                if (isChecked){
-                    cbMan.setChecked(false);
-                }
+        cbWoman.setOnCheckedChangeListener((checkBox, isChecked) -> {
+            if (isChecked){
+                cbMan.setChecked(false);
             }
         });
 
@@ -84,18 +72,15 @@ public class AccountInformationActivity extends BaseActivity{
         tvProvince.setAdapter(provincesAdapter);
         tvCityRegency.setThreshold(1);
         tvCityRegency.setAdapter(cityRegenciesAdapter);
-        tvProvince.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Tuple province = (Tuple) parent.getItemAtPosition(position);
-                tvCityRegency.setText("");
-                List<Tuple> list = CityRegencies.getCityRegencies(province.getKey());
-                cityRegencies.clear();
-                for (Tuple tuple : list){
-                    cityRegencies.add(tuple);
-                }
-                cityRegenciesAdapter.notifyDataSetChanged();
+        tvProvince.setOnItemClickListener((parent, view, position, id) -> {
+            Tuple province = (Tuple) parent.getItemAtPosition(position);
+            tvCityRegency.setText("");
+            List<Tuple> list = CityRegencies.getCityRegencies(province.getKey());
+            cityRegencies.clear();
+            for (Tuple tuple : list){
+                cityRegencies.add(tuple);
             }
+            cityRegenciesAdapter.notifyDataSetChanged();
         });
 
     }

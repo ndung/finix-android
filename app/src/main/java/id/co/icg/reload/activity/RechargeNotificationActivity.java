@@ -36,12 +36,7 @@ public class RechargeNotificationActivity extends BaseActivity {
         tvPhoneNumber = findViewById(R.id.tv_phone_number);
         tvVoucherSn = findViewById(R.id.tv_voucher_sn);
 
-        ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        ivBack.setOnClickListener(v -> finish());
     }
 
     @Override

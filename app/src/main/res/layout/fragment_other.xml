@@ -301,38 +301,6 @@
                 android:elevation="1dp"
                 android:orientation="vertical">
 
-                <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="21dp"
-                    android:layout_marginLeft="16.7dp"
-                    android:layout_marginStart="16.7dp"
-                    android:layout_marginTop="21dp"
-                    android:text="@string/faq"
-                    android:textColor="@color/trans_text_black"
-                    android:textSize="15sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/view_gray" />
-
-                <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="21dp"
-                    android:layout_marginLeft="16.7dp"
-                    android:layout_marginStart="16.7dp"
-                    android:layout_marginTop="21dp"
-                    android:text="@string/contact_us"
-                    android:textColor="@color/trans_text_black"
-                    android:textSize="15sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#ececec" />
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -385,7 +353,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="41.3dp"
                         android:fontFamily="sans-serif"
-                        android:text="Change Language"
+                        android:text="@string/contact_us"
                         android:textColor="@color/black_txt_Color"
                         android:textSize="15sp"
                         android:textStyle="normal" />
@@ -416,7 +384,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="41.3dp"
                         android:fontFamily="sans-serif"
-                        android:text="Help"
+                        android:text="FAQ and Help"
                         android:textColor="@color/black_txt_Color"
                         android:textSize="15sp"
                         android:textStyle="normal" />

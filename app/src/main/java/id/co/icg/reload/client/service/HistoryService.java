@@ -9,4 +9,11 @@ public interface HistoryService  {
 
     @GET("history/get-account-logs/{date}")
     Call<Response> getAccountLogs(@Path("date") String date);
+
+    @GET("history/get-settlement-logs")
+    Call<Response> getSettlementLogs();
+
+
+    @GET("history/get-deposit-logs/{page}")
+    Call<Response> getDepositLogs(@Path("page") int page);
 }

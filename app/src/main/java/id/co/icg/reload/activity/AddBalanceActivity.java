@@ -48,6 +48,7 @@ import retrofit2.Callback;
 public class AddBalanceActivity extends BaseActivity {
 
     private ImageView ivBack;
+    private ImageView ivHistory;
     private TextView tvTitle;
     private EditText etAmt;
     private EditText etDescription;
@@ -71,6 +72,7 @@ public class AddBalanceActivity extends BaseActivity {
         setContentView(R.layout.activity_add_balance);
 
         ivBack = findViewById(R.id.iv_back);
+        ivHistory = findViewById(R.id.iv_history);
         tvTitle = findViewById(R.id.tv_title);
         etAmt = findViewById(R.id.et_amt);
         etDescription = findViewById(R.id.et_description);
@@ -126,6 +128,12 @@ public class AddBalanceActivity extends BaseActivity {
 
             }
         });
+
+        ivHistory.setOnClickListener(v -> showHistory());
+    }
+
+    private void showHistory(){
+        startActivity(new Intent(this, DepositLogActivity.class));
     }
 
     private void refreshBankAccounts(BankAccount bankAccount){

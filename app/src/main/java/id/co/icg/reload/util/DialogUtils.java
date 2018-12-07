@@ -30,4 +30,12 @@ public class DialogUtils {
         return dialog;
     }
 
+    public Dialog showDialog(String title, int id, boolean cancelable){
+        Dialog dialog = createDialog(id, cancelable);
+        dialog.setTitle(title);
+        dialog.show();
+
+        return dialog;
+    }
+
 }

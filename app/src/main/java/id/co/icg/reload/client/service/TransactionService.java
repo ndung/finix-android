@@ -14,6 +14,9 @@ public interface TransactionService {
     @GET("transaction/get-all-products")
     Call<Response> getAllProducts();
 
+    @GET("transaction/get-billers-by-category/{id}")
+    Call<Response> getBillersByCategory(@Path("id") int id);
+
     @GET("transaction/get-products-by-category/{id}")
     Call<Response> getProductsByCategory(@Path("id") int id);
 

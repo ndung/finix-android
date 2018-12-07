@@ -35,19 +35,16 @@ public class PhoneBillInquiryActivity extends BaseActivity {
         ivBack = findViewById(R.id.iv_back);
         tvTitle = findViewById(R.id.tv_title);
         etMobileNumber = findViewById(R.id.et_mobile_number);
-        etMobileNumber.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                final int DRAWABLE_RIGHT = 2;
+        etMobileNumber.setOnTouchListener((v, event) -> {
+            final int DRAWABLE_RIGHT = 2;
 
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-                    if (event.getRawX() >= (etMobileNumber.getRight() - etMobileNumber.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
-                        pickContacts(etMobileNumber);
-                        return true;
-                    }
+            if (event.getAction() == MotionEvent.ACTION_UP) {
+                if (event.getRawX() >= (etMobileNumber.getRight() - etMobileNumber.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                    pickContacts(etMobileNumber);
+                    return true;
                 }
-                return false;
             }
+            return false;
         });
         tvInquiry = findViewById(R.id.tv_inquiry);
 
@@ -56,41 +53,27 @@ public class PhoneBillInquiryActivity extends BaseActivity {
 
         cbTelkom.setChecked(true);
 
-        cbTelkom.setOnCheckedChangeListener(new CustomCheckBox.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CustomCheckBox checkBox, boolean isChecked) {
-                if (isChecked){
-                    cbOther.setChecked(false);
-                }
+        cbTelkom.setOnCheckedChangeListener((checkBox, isChecked) -> {
+            if (isChecked){
+                cbOther.setChecked(false);
             }
         });
 
-        cbOther.setOnCheckedChangeListener(new CustomCheckBox.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CustomCheckBox checkBox, boolean isChecked) {
-                if (isChecked){
-                    cbTelkom.setChecked(false);
-                }
+        cbOther.setOnCheckedChangeListener((checkBox, isChecked) -> {
+            if (isChecked){
+                cbTelkom.setChecked(false);
             }
         });
 
         tilCustomerId = findViewById(R.id.til_customer_id);
 
-        ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        ivBack.setOnClickListener(v -> finish());
 
         tvTitle.setText("Pembayaran tagihan telepon pascabayar");
 
-        tvInquiry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (etMobileNumber.getText().equals("")){
-                    tilCustomerId.setError("Masukkan nomor telepon atau ID pelanggan");
-                }
+        tvInquiry.setOnClickListener(v -> {
+            if (etMobileNumber.getText().equals("")){
+                tilCustomerId.setError("Masukkan nomor telepon atau ID pelanggan");
             }
         });
     }

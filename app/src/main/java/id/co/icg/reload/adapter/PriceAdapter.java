@@ -2,6 +2,7 @@ package id.co.icg.reload.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,7 +77,7 @@ public class PriceAdapter extends RecyclerView.Adapter<PriceAdapter.ViewHolder> 
         if (product.getDescription()!=null) {
             holder.tvDescription.setText(product.getDescription());
         }else{
-            holder.tvDescription.setText("");
+            holder.tvDescription.setText(" ");
         }
 
     }
@@ -86,7 +87,7 @@ public class PriceAdapter extends RecyclerView.Adapter<PriceAdapter.ViewHolder> 
         return products.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
         ImageView ivIcon;
         TextView tvId,tvName,tvDescription,tvPrice,tvCashback,tvPts;
         public ViewHolder(View itemView) {

@@ -35,23 +35,15 @@ public class OtherBillInquiryActivity extends BaseActivity {
         spinner = findViewById(R.id.spinner);
         tvInquiry = findViewById(R.id.tv_inquiry);
         etCustomerId = findViewById(R.id.et_customer_id);
-        ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        ivBack.setOnClickListener(v -> finish());
 
         ArrayAdapter<Product> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, products);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
         tvTitle.setText("Pembayaran tagihan lainnya");
-        tvInquiry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        tvInquiry.setOnClickListener(v -> {
 
-            }
         });
     }
 

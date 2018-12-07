@@ -1,5 +1,7 @@
 package id.co.icg.reload.fragment;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 
 import id.co.icg.reload.R;
 import id.co.icg.reload.activity.AccountInformationActivity;
+import id.co.icg.reload.activity.ChatActivity;
 
 public class BaseFragment extends Fragment {
 
@@ -44,4 +47,22 @@ public class BaseFragment extends Fragment {
         Intent intent = new Intent(getActivity(), AccountInformationActivity.class);
         startActivity(intent);
     }
+
+    protected void startChatActivity(){
+        Intent intent = new Intent(getActivity(), ChatActivity.class);
+        startActivity(intent);
+
+
+    }
+
+    protected BroadcastReceiver myReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            //if (context instanceof ChatActivity == false) {
+
+                //invalidateOptionsMenu();
+            //}
+
+        }
+    };
 }

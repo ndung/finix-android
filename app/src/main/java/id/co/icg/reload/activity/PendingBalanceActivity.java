@@ -50,6 +50,7 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 public class PendingBalanceActivity extends BaseActivity {
 
     private ImageView ivBack;
+    private ImageView ivHistory;
     private TextView tvTitle;
     private TextView tvDateTime;
     private TextView tvBankAccount;
@@ -78,6 +79,7 @@ public class PendingBalanceActivity extends BaseActivity {
         ivBack = findViewById(R.id.iv_back);
         tvProof = findViewById(R.id.tv_proof);
         tvTitle = findViewById(R.id.tv_title);
+        ivHistory = findViewById(R.id.iv_history);
 
         tvTitle.setText(R.string.add_balance);
 
@@ -98,20 +100,10 @@ public class PendingBalanceActivity extends BaseActivity {
         tvExpiredDate = findViewById(R.id.tv_expired_date);
         tvExpiredDate.setText(date.substring(0, 10) + " 21:59:59");
 
-        ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        ivBack.setOnClickListener(v -> finish());
 
         tvAddEvidence = findViewById(R.id.tv_add_evidence);
-        tvAddEvidence.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                attach();
-            }
-        });
+        tvAddEvidence.setOnClickListener(v -> attach());
 
         if (!TextUtils.isEmpty(pendingBalance.getProof())){
             String link = Static.BASE_URL+"files/"+pendingBalance.getProof();
@@ -119,14 +111,18 @@ public class PendingBalanceActivity extends BaseActivity {
             content.setSpan(new UnderlineSpan(), 0, link.length(), 0);
             tvProof.setText(content);
         }
-        tvProof.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!TextUtils.isEmpty(tvProof.getText().toString())){
-                    new DownloadFileAsync().execute(tvProof.getText().toString());
-                }
+        tvProof.setOnClickListener(v -> {
+            if (!TextUtils.isEmpty(tvProof.getText().toString())){
+                new DownloadFileAsync().execute(tvProof.getText().toString());
             }
         });
+
+        ivHistory.setOnClickListener(v -> showHistory());
+    }
+
+
+    private void showHistory(){
+        startActivity(new Intent(this, DepositLogActivity.class));
     }
 
     private void attach() {

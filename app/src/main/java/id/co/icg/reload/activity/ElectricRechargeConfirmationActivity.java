@@ -37,19 +37,11 @@ public class ElectricRechargeConfirmationActivity extends BaseActivity {
         tvPhoneNumber = findViewById(R.id.tv_phone_number);
         tvCustomerId = findViewById(R.id.tv_customer_id);
 
-        ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        ivBack.setOnClickListener(v -> finish());
 
         tvPay = findViewById(R.id.tv_pay);
-        tvPay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        tvPay.setOnClickListener(v -> {
 
-            }
         });
     }
 

@@ -94,7 +94,7 @@
     <string name="fingerprint_update_message">Fingerprint baru saja dibuat, login dengan fingerprint tidak diizinkan. Silakan masuk dulu dengan password\nlalu aktifkan login dengan fingerprint di menu Akun Saya"</string>
     <string name="system_malfunction">Kegagalan sistem server, silakan coba beberapa saat lagi</string>
     <string name="internet_connection_error">Pastikan anda mempunyai koneksi internet yang aktif</string>
-    <string name="new_password">Kata sandi</string>
+    <string name="new_password">Kata sandi baru</string>
     <string name="create_new_password">Membuat kata sandi</string>
     <string name="new_password_not_macth">Password baru yang dimasukkan harus sama dengan yang dikonfirmasi</string>
     <string name="saldo">Saldo</string>
@@ -111,7 +111,7 @@
     <string name="forget_password">lupa kata sandi?</string>
     <string name="product">Produk</string>
     <string name="recharge_notification">Notifikasi Pembelian</string>
-    <string name="add_balance">Tambah Saldo</string>
+    <string name="add_balance">Tambah saldo</string>
     <string name="customer_name">Nama pelanggan</string>
     <string name="pay">BAYAR</string>
     <string name="customer_phone_number">Nomor telepon pelanggan</string>
@@ -203,4 +203,6 @@
     <string name="none_found">No devices found</string>
     <string name="title_paired_devices">Paired Devices</string>
     <string name="title_other_devices">Other Available Devices</string>
+    <string name="other_menu">Pembelian lainnya</string>
+    <string name="redeem_points">Penukaran poin</string>
 </resources>

@@ -79,19 +79,9 @@ public class CreatePasswordActivity extends BaseActivity {
 
         tilNewPassword.setHint(getString(R.string.password_hint));
 
-        tvSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createPassword(etNewPassword.getText().toString(), etConfirmedNewPassword.getText().toString());
-            }
-        });
+        tvSave.setOnClickListener(v -> createPassword(etNewPassword.getText().toString(), etConfirmedNewPassword.getText().toString()));
 
-        ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        ivBack.setOnClickListener(v -> finish());
 
     }
 

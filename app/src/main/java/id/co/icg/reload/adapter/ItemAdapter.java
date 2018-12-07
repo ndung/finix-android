@@ -30,7 +30,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
 
     @Override
     public ItemAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_view, parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_item, parent,false);
 
         return new ItemAdapter.ViewHolder(view);
     }
@@ -47,7 +47,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
         return items.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvItem;
 

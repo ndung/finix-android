@@ -97,12 +97,7 @@ public class MobileDataRechargeActivity extends BaseActivity{
         spinner.setSelection(1);
 
         rvProducts = findViewById(R.id.rv_products);
-        ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        ivBack.setOnClickListener(v -> finish());
 
         billerProductsMap = new TreeMap<>();
         List<Product> productList = (List<Product>) getIntent().getSerializableExtra("products");
@@ -161,12 +156,7 @@ public class MobileDataRechargeActivity extends BaseActivity{
 
         list = new ArrayList<>();
 
-        adapter = new ProductAdapter(this, list, new ProductAdapter.OnItemClickListener() {
-            @Override
-            public boolean onItemClick(Product model) {
-                return confirm(etMobileNumber.getText().toString(), model);
-            }
-        });
+        adapter = new ProductAdapter(this, list, model -> confirm(etMobileNumber.getText().toString(), model));
         rvProducts.setAdapter(adapter);
     }
 

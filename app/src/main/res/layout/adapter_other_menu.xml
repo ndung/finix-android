@@ -10,12 +10,13 @@
         android:orientation="horizontal"
         android:layout_marginTop="10.7dp"
         android:layout_marginStart="11.7dp"
-        android:layout_marginBottom="11dp">
+        android:layout_marginBottom="11dp"
+        android:layout_marginLeft="11.7dp">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/image"
+            android:id="@+id/iv"
             android:layout_gravity="center"/>
 
         <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
@@ -23,10 +24,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textSize="15sp"
-            android:id="@+id/billText"
+            android:id="@+id/tv"
             android:layout_marginStart="12dp"
             android:text="mh,"
-            android:textColor="#484848"/>
+            android:textColor="#484848"
+            android:layout_marginLeft="12dp" />
 
     </LinearLayout>
     

@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="3dp"
-    android:layout_marginBottom="11.7dp"
+    android:layout_marginTop="11.7dp"
     android:layout_marginStart="11.7dp"
     android:layout_marginEnd="11.7dp"
     app:cardElevation="1dp"
@@ -75,6 +75,7 @@
                 android:textSize="13.3sp"
                 android:textColor="#008489"
                 android:id="@+id/tv_price"
+                android:layout_gravity="right"
                 android:layout_marginTop="1.3dp"
                 android:text="Rp 10.000"/>
 
@@ -83,6 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="10sp"
+                android:layout_gravity="right"
                 android:textColor="@color/text_gray"
                 android:text="10 Poin"/>
 

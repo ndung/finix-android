@@ -59,7 +59,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/account_icon"
+                android:src="@drawable/ic_pdf"
                 android:layout_gravity="center"/>
 
         </LinearLayout>
@@ -116,7 +116,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/bankicon"
+                android:src="@drawable/ic_bluetooth"
                 android:layout_gravity="center"/>
 
         </LinearLayout>
@@ -173,7 +173,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/usericon"
+                android:src="@drawable/ic_printer"
                 android:layout_gravity="center"/>
 
         </LinearLayout>
