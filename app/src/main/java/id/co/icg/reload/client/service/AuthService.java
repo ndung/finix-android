@@ -3,10 +3,15 @@ package id.co.icg.reload.client.service;
 import java.util.Map;
 
 import id.co.icg.reload.client.Response;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
+import retrofit2.http.PartMap;
 import retrofit2.http.Path;
 
 public interface AuthService {
@@ -40,5 +45,12 @@ public interface AuthService {
 
     @POST("user/update-facebook")
     Call<Response> updateFacebookInfo(@Body Map<String,String> map);
+
+    @POST("user/gen-qr")
+    Call<Response> genQr();
+
+    @Multipart
+    @POST("user/update-account")
+    Call<Response> updateAccount(@PartMap Map<String, RequestBody> map, @Part MultipartBody.Part pp, @Part MultipartBody.Part id);
 
 }

@@ -12,7 +12,7 @@
         android:elevation="1dp"
         android:orientation="vertical">
 
-        <include layout="@layout/toolbar_transacation" />
+        <include layout="@layout/toolbar_transaction" />
 
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"

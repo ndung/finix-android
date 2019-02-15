@@ -5,6 +5,8 @@ import android.annotation.TargetApi;
 import android.app.KeyguardManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.security.keystore.KeyGenParameterSpec;
@@ -21,27 +23,27 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
-import com.google.gson.reflect.TypeToken;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 
 import org.json.JSONObject;
 
 import java.security.KeyStore;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.crypto.KeyGenerator;
@@ -49,12 +51,13 @@ import javax.crypto.KeyGenerator;
 import id.co.icg.reload.R;
 import id.co.icg.reload.activity.AccountInformationActivity;
 import id.co.icg.reload.activity.ChangePasswordActivity;
+import id.co.icg.reload.activity.ContactUsActivity;
 import id.co.icg.reload.activity.LoginActivity;
 import id.co.icg.reload.activity.PrinterActivity;
 import id.co.icg.reload.client.ApiUtils;
 import id.co.icg.reload.client.Response;
 import id.co.icg.reload.client.service.AuthService;
-import id.co.icg.reload.model.Product;
+import id.co.icg.reload.model.QrCode;
 import id.co.icg.reload.model.Reseller;
 import id.co.icg.reload.util.Global;
 import id.co.icg.reload.util.GsonDeserializer;
@@ -73,7 +76,9 @@ public class OtherFragment extends BaseFragment {
     private LinearLayout llVerifyAccount;
     private LinearLayout llChangePassword;
     private LinearLayout llSettingPrinter;
-    private LinearLayout tvLogout;
+    private RelativeLayout layoutContactUs;
+    private RelativeLayout layoutRefer;
+    private RelativeLayout layoutLogout;
 
     private Boolean shouldUseFingerprint = false;
     private KeyStore mKeyStore;
@@ -84,7 +89,7 @@ public class OtherFragment extends BaseFragment {
     private TextView tvPhoneNumber;
     private TextView tvDefaultPrinter;
     private ImageView ivVerified;
-
+    private ImageView ivQr;
     private ImageView ivNotification;
 
     @Nullable
@@ -109,8 +114,14 @@ public class OtherFragment extends BaseFragment {
         llSettingPrinter = view.findViewById(R.id.ll_setting_printer);
         llSettingPrinter.setOnClickListener(v -> startPrinterSetting());
 
-        tvLogout = view.findViewById(R.id.layout_logout);
-        tvLogout.setOnClickListener(v -> logout());
+        layoutRefer = view.findViewById(R.id.layout_refer);
+        layoutRefer.setOnClickListener(v -> share());
+
+        layoutContactUs = view.findViewById(R.id.layout_contact_us);
+        layoutContactUs.setOnClickListener(v -> startContactUs());
+
+        layoutLogout = view.findViewById(R.id.layout_logout);
+        layoutLogout.setOnClickListener(v -> logout());
 
         tvPhoneNumber = view.findViewById(R.id.tv_phone_number);
         tvDefaultPrinter = view.findViewById(R.id.tv_default_printer);
@@ -179,22 +190,25 @@ public class OtherFragment extends BaseFragment {
         }else{
             ivVerified.setVisibility(View.GONE);
         }
+        ivQr = view.findViewById(R.id.iv_qr);
+        genQr();
         return view;
     }
 
     private void startChangePassword(){
-        Intent intent = new Intent(getActivity(), ChangePasswordActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(getActivity(), ChangePasswordActivity.class));
     }
 
     private void startVerifyAccount(){
-        Intent intent = new Intent(getActivity(), AccountInformationActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(getActivity(), AccountInformationActivity.class));
     }
 
     private void startPrinterSetting(){
-        Intent intent = new Intent(getActivity(), PrinterActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(getActivity(), PrinterActivity.class));
+    }
+
+    private void startContactUs(){
+        startActivity(new Intent(getActivity(), ContactUsActivity.class));
     }
 
     private void logout(){
@@ -343,5 +357,61 @@ public class OtherFragment extends BaseFragment {
             Log.e("fingerprint", "error", e);
         }
     }
+
+    private void share() {
+        //String link = Constants.REFEREAL_URL + referal;
+        String textShared = "Ayo Daftar iReload Sekarang! " +
+                "\nMasukkan Kode Referral: " + "aaa" + " Pada Saat Daftar Atau ";
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, textShared);
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
+    }
+
+    private void genQr(){
+        authService.genQr().enqueue(new Callback<Response>() {
+
+            @Override
+            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+                try {
+                    if (response.isSuccessful()) {
+                        Gson gson = new GsonBuilder().registerTypeAdapter(Date.class, new GsonDeserializer()).create();
+                        Response body = response.body();
+                        JsonObject jsonObject = gson.toJsonTree(body.getData()).getAsJsonObject();
+
+                        QrCode qrCode = gson.fromJson(jsonObject, QrCode.class);
+                        if (qrCode!=null){
+                            QRCodeWriter writer = new QRCodeWriter();
+                            BitMatrix bitMatrix = writer.encode(qrCode.getCode(), BarcodeFormat.QR_CODE, 512, 512);
+                            int width = bitMatrix.getWidth();
+                            int height = bitMatrix.getHeight();
+                            Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+                            for (int x = 0; x < width; x++) {
+                                for (int y = 0; y < height; y++) {
+                                    bmp.setPixel(x, y, bitMatrix.get(x, y) ? Color.BLACK : Color.WHITE);
+                                }
+                            }
+                            ivQr.setImageBitmap(bmp);
+                        }
+                    } else if (response.errorBody() != null) {
+                        JSONObject jObjError = new JSONObject(response.errorBody().string().trim());
+                        showMessage(jObjError.getString("message"));
+                    } else {
+                        showMessage(Static.SOMETHING_WRONG);
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Response> call, Throwable t) {
+                showMessage(t.getMessage());
+            }
+        });
+    }
+
+
 
 }

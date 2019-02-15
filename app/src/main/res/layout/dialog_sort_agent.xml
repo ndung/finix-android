@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/round_background_light"
+    android:orientation="vertical"
+    android:padding="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RadioGroup
+        android:id="@+id/rg_sort"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <id.co.icg.reload.ui.customfonts.RadioButton_Roboto_Medium
+            android:id="@+id/rb_name_asc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nama ( kecil ke besar, A - Z ) "
+            android:textColor="@color/text_black" />
+
+        <id.co.icg.reload.ui.customfonts.RadioButton_Roboto_Medium
+            android:id="@+id/rb_name_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nama ( besar ke kecil , Z - A ) "
+            android:textColor="@color/text_black" />
+
+        <id.co.icg.reload.ui.customfonts.RadioButton_Roboto_Medium
+            android:id="@+id/rb_balance_asc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Saldo kecil ke besar"
+            android:textColor="@color/text_black" />
+
+        <id.co.icg.reload.ui.customfonts.RadioButton_Roboto_Medium
+            android:id="@+id/rb_balance_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Saldo besar ke kecil"
+            android:textColor="@color/text_black" />
+
+        <id.co.icg.reload.ui.customfonts.RadioButton_Roboto_Medium
+            android:id="@+id/rb_date_asc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Tanggal registrasi awal ke akhir"
+            android:textColor="@color/text_black" />
+
+        <id.co.icg.reload.ui.customfonts.RadioButton_Roboto_Medium
+            android:id="@+id/rb_date_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Tanggal registrasi akhir ke awal"
+            android:textColor="@color/text_black" />
+
+    </RadioGroup>
+
+</LinearLayout>

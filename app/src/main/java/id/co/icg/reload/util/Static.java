@@ -5,7 +5,7 @@ public class Static {
     public final static String MyPref = "ireload_pref";
 
     public final static String PORT = ":7000";
-    public final static String IP = "172.100.6.196"+PORT;
+    public final static String IP = "192.168.137.101"+PORT;
     public final static String APPS = "/api/v1/";
     public final static String BASE_URL = "http://"+IP+APPS;
 

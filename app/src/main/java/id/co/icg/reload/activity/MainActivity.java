@@ -2,6 +2,7 @@ package id.co.icg.reload.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
@@ -12,6 +13,7 @@ import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import id.co.icg.reload.R;
 import id.co.icg.reload.fragment.AgentsFragment;
@@ -84,4 +86,20 @@ public class MainActivity extends BaseActivity {
         loadFragment(new HomeFragment());
     }
 
+
+    private static final int TIME_DELAY = 2000;
+    private static boolean doubleBackToExitPressedOnce = false;
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            finish();
+            return;
+        }
+        loadFragment(new HomeFragment());
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Tekan tombol back sekali lagi untuk keluar aplikasi", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(() -> doubleBackToExitPressedOnce = false, TIME_DELAY);
+
+    }
 }

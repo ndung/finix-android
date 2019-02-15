@@ -25,7 +25,11 @@ public class Reseller implements Serializable{
     private String zipCode;
     private String district;
     private String subdistrict;
+    private String email;
     private Date joinedDate;
+    private String identityNumber;
+    private String identityPhoto;
+    private String profilePicture;
 
     public String getId() {
         return id;
@@ -193,5 +197,37 @@ public class Reseller implements Serializable{
 
     public void setSubdistrict(String subdistrict) {
         this.subdistrict = subdistrict;
+    }
+
+    public String getIdentityNumber() {
+        return identityNumber;
+    }
+
+    public void setIdentityNumber(String identityNumber) {
+        this.identityNumber = identityNumber;
+    }
+
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
+    public String getIdentityPhoto() {
+        return identityPhoto;
+    }
+
+    public void setIdentityPhoto(String identityPhoto) {
+        this.identityPhoto = identityPhoto;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

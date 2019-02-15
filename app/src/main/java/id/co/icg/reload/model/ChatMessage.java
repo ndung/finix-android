@@ -68,4 +68,17 @@ public class ChatMessage implements Serializable{
     public void setTelegramId(Long telegramId) {
         this.telegramId = telegramId;
     }
+
+    @Override
+    public String toString() {
+        return "ChatMessage{" +
+                "id=" + id +
+                ", topic='" + topic + '\'' +
+                ", userId='" + userId + '\'' +
+                ", message='" + message + '\'' +
+                ", created=" + created +
+                ", readStatus=" + readStatus +
+                ", telegramId=" + telegramId +
+                '}';
+    }
 }

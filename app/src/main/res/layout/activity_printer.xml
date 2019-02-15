@@ -7,7 +7,7 @@
     android:background="#f6f6f6"
     android:orientation="vertical">
 
-    <include layout="@layout/toolbar_transacation"/>
+    <include layout="@layout/toolbar_transaction"/>
 
     <android.support.v7.widget.CardView
         android:id="@+id/ll_set_pdf"

@@ -8,17 +8,18 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_below="@+id/toolbar"
-        android:layout_above="@+id/tv_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_save"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_below="@+id/toolbar"
         android:background="@android:color/white"
         android:elevation="1dp"
         android:orientation="vertical">
 
-        <include layout="@layout/toolbar_transacation" />
+        <include layout="@layout/toolbar_transaction" />
 
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -28,6 +29,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="18.9dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_pp"
+                        android:layout_width="200dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center_vertical|center_horizontal"
+                        android:layout_marginBottom="10dp"
+                        app:srcCompat="@drawable/pp_account" />
+                </LinearLayout>
 
 
                 <LinearLayout
@@ -41,9 +57,9 @@
 
 
                     <android.support.design.widget.TextInputLayout
+                        android:id="@+id/til_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="18.9dp"
                         android:theme="@style/TextLabel">
 
                         <id.co.icg.reload.ui.customfonts.EditText_Roboto_Regular
@@ -57,6 +73,61 @@
                     </android.support.design.widget.TextInputLayout>
 
                     <android.support.design.widget.TextInputLayout
+                        android:id="@+id/til_ktp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18.9dp"
+                        android:theme="@style/TextLabel">
+
+                        <id.co.icg.reload.ui.customfonts.EditText_Roboto_Regular
+                            android:id="@+id/et_ktp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="No KTP"
+                            android:textColor="@color/trans_text_black"
+                            android:textSize="15sp" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cv_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:cardBackgroundColor="#EEE"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:id="@+id/iv_id"
+                                android:layout_width="match_parent"
+                                android:layout_height="150dp"
+                                android:visibility="gone" />
+
+                            <ImageView
+                                android:id="@+id/iv_plus_id"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                app:srcCompat="@drawable/plus_btn" />
+
+                            <TextView
+                                android:id="@+id/tv_upload_id"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="upload foto ktp anda "
+                                android:textAlignment="center"
+                                android:textColor="#959595"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/til_bod"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="19.6dp"
@@ -64,11 +135,11 @@
 
                         <id.co.icg.reload.ui.customfonts.EditText_Roboto_Regular
                             android:id="@+id/et_bod"
-                            android:focusable="false"
-                            android:inputType="date"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:focusable="false"
                             android:hint="@string/bod"
+                            android:inputType="date"
                             android:textColor="@color/trans_text_black"
                             android:textSize="15sp" />
 
@@ -77,46 +148,50 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:background="@color/white">
+                        android:background="@color/white"
+                        android:orientation="vertical">
 
                         <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Medium
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="15dp"
+                            android:layout_marginLeft="4dp"
                             android:layout_marginStart="4dp"
-                            android:textSize="11.7sp"
-                            android:textColor="@color/text_gray"
+                            android:layout_marginTop="15dp"
                             android:text="@string/gender"
+                            android:textColor="@color/text_gray"
+                            android:textSize="11.7sp"
                             android:textStyle="normal" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="13dp"
+                            android:layout_marginEnd="16.7dp"
+                            android:layout_marginLeft="11.7dp"
+                            android:layout_marginRight="16.7dp"
                             android:layout_marginStart="11.7dp"
-                            android:layout_marginEnd="16.7dp">
+                            android:layout_marginTop="13dp"
+                            android:orientation="horizontal">
 
                             <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
                                 android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:layout_gravity="center"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_weight="1"
                                 android:text="Laki-laki"
-                                android:textSize="15sp"
                                 android:textColor="@color/text_black"
-                                android:layout_marginStart="8dp"/>
+                                android:textSize="15sp" />
 
                             <net.igenius.customcheckbox.CustomCheckBox
                                 android:id="@+id/cb_man"
                                 android:layout_width="17.7dp"
                                 android:layout_height="17.7dp"
                                 android:layout_gravity="center"
-                                app:stroke_width="1dp"
-                                app:color_tick="@color/white"
                                 app:color_checked="#2dbc61"
-                                app:color_unchecked_stroke="@color/text_gray"/>
+                                app:color_tick="@color/white"
+                                app:color_unchecked_stroke="@color/text_gray"
+                                app:stroke_width="1dp" />
 
                         </LinearLayout>
 
@@ -124,51 +199,55 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="13dp"
+                            android:layout_marginEnd="16.7dp"
+                            android:layout_marginLeft="11.7dp"
+                            android:layout_marginRight="16.7dp"
                             android:layout_marginStart="11.7dp"
-                            android:layout_marginEnd="16.7dp">
+                            android:layout_marginTop="13dp"
+                            android:orientation="horizontal">
 
                             <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
                                 android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:layout_gravity="center"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_weight="1"
                                 android:text="Perempuan"
-                                android:textSize="15sp"
                                 android:textColor="@color/text_black"
-                                android:layout_marginStart="8dp"/>
+                                android:textSize="15sp" />
 
                             <net.igenius.customcheckbox.CustomCheckBox
                                 android:id="@+id/cb_woman"
                                 android:layout_width="17.7dp"
                                 android:layout_height="17.7dp"
                                 android:layout_gravity="center"
-                                app:stroke_width="1dp"
-                                app:color_tick="@color/white"
                                 app:color_checked="#2dbc61"
-                                app:color_unchecked_stroke="@color/text_gray"/>
+                                app:color_tick="@color/white"
+                                app:color_unchecked_stroke="@color/text_gray"
+                                app:stroke_width="1dp" />
 
                         </LinearLayout>
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="@color/view_gray"
-                            android:layout_marginTop="13dp"
+                            android:layout_marginEnd="4dp"
                             android:layout_marginStart="4dp"
-                            android:layout_marginEnd="4dp"/>
+                            android:layout_marginTop="13dp"
+                            android:background="@color/view_gray" />
 
                     </LinearLayout>
 
                     <android.support.design.widget.TextInputLayout
+                        android:id="@+id/til_address"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="19.6dp"
                         android:theme="@style/TextLabel">
 
                         <id.co.icg.reload.ui.customfonts.EditText_Roboto_Regular
-                            android:id="@+id/tv_address"
+                            android:id="@+id/et_address"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/address"
@@ -178,8 +257,10 @@
                     </android.support.design.widget.TextInputLayout>
 
                     <android.support.design.widget.TextInputLayout
+                        android:id="@+id/til_province"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="19.6dp"
                         android:layout_marginTop="19.6dp"
                         android:theme="@style/TextLabel">
 
@@ -194,8 +275,10 @@
                     </android.support.design.widget.TextInputLayout>
 
                     <android.support.design.widget.TextInputLayout
+                        android:id="@+id/til_city_regency"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="19.6dp"
                         android:layout_marginTop="19.6dp"
                         android:theme="@style/TextLabel">
 
@@ -210,8 +293,46 @@
                     </android.support.design.widget.TextInputLayout>
 
                     <android.support.design.widget.TextInputLayout
+                        android:id="@+id/til_district"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="19.6dp"
+                        android:layout_marginTop="19.6dp"
+                        android:theme="@style/TextLabel">
+
+                        <id.co.icg.reload.ui.customfonts.AutoCompleteTextView_Roboto_Regular
+                            android:id="@+id/tv_district"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Kecamatan"
+                            android:textColor="@color/trans_text_black"
+                            android:textSize="15sp" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/til_subdistrict"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="19.6dp"
+                        android:layout_marginTop="19.6dp"
+                        android:theme="@style/TextLabel">
+
+                        <id.co.icg.reload.ui.customfonts.AutoCompleteTextView_Roboto_Regular
+                            android:id="@+id/tv_subdistrict"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Kelurahan"
+                            android:textColor="@color/trans_text_black"
+                            android:textSize="15sp" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/til_zip_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="19.6dp"
                         android:layout_marginTop="19.6dp"
                         android:theme="@style/TextLabel">
 
@@ -227,6 +348,25 @@
                     </android.support.design.widget.TextInputLayout>
 
                     <android.support.design.widget.TextInputLayout
+                        android:id="@+id/til_whatsapp_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="19.6dp"
+                        android:theme="@style/TextLabel">
+
+                        <id.co.icg.reload.ui.customfonts.EditText_Roboto_Regular
+                            android:id="@+id/et_whatsapp_no"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="No Whatsapp"
+                            android:inputType="textEmailAddress"
+                            android:textColor="@color/trans_text_black"
+                            android:textSize="15sp" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/til_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="19.6dp"
@@ -243,6 +383,41 @@
 
                     </android.support.design.widget.TextInputLayout>
 
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/til_h2h_account"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="19.6dp"
+                        android:theme="@style/TextLabel">
+
+                        <id.co.icg.reload.ui.customfonts.EditText_Roboto_Regular
+                            android:id="@+id/et_h2h_account"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Username telegram/ XMPP (Jabber)"
+                            android:textColor="@color/trans_text_black"
+                            android:textSize="15sp" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/til_referral_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="19.6dp"
+                        android:theme="@style/TextLabel">
+
+                        <id.co.icg.reload.ui.customfonts.EditText_Roboto_Regular
+                            android:id="@+id/et_referral_code"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Kode referral"
+                            android:textColor="@color/trans_text_black"
+                            android:textSize="15sp" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+
                 </LinearLayout>
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
@@ -256,6 +431,7 @@
         android:background="@color/colorPrimary"
         android:gravity="center"
         android:text="@string/save"
+        android:letterSpacing="0.1"
         android:textColor="#ffffff"
         android:textSize="15sp" />
 </RelativeLayout>
