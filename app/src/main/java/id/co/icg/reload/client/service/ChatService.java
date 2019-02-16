@@ -21,6 +21,6 @@ public interface ChatService {
     Call<Response> sendChatMessage(@Body Map<String,String> map);
 
     @Multipart
-    @POST("chat/fcmUpload")
-    Call<Response> uploadMessageAttachment(@Body Map<String,String> map, @Part MultipartBody.Part attachment);
+    @POST("chat/fcmUpload/{id}")
+    Call<Response> uploadMessageAttachment(@Path("id") String id, @Part MultipartBody.Part attachment);
 }

@@ -2,16 +2,16 @@ package id.co.icg.reload.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import android.os.Handler;
 import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import id.co.icg.reload.R;
 import id.co.icg.reload.fragment.AgentsFragment;
@@ -19,7 +19,6 @@ import id.co.icg.reload.fragment.HomeFragment;
 import id.co.icg.reload.fragment.OtherFragment;
 import id.co.icg.reload.fragment.PriceFragment;
 import id.co.icg.reload.fragment.TransactionsFragment;
-import id.co.icg.reload.ui.BottomNavigationViewHelper;
 
 public class MainActivity extends BaseActivity {
 
@@ -66,7 +65,6 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
-        BottomNavigationViewHelper.removeShiftMode(navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         BottomNavigationMenuView menuView = (BottomNavigationMenuView) navigation.getChildAt(0);
@@ -84,4 +82,20 @@ public class MainActivity extends BaseActivity {
         loadFragment(new HomeFragment());
     }
 
+
+    private static final int TIME_DELAY = 2000;
+    private static boolean doubleBackToExitPressedOnce = false;
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            finish();
+            return;
+        }
+        loadFragment(new HomeFragment());
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Tekan tombol back sekali lagi untuk keluar aplikasi", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(() -> doubleBackToExitPressedOnce = false, TIME_DELAY);
+
+    }
 }

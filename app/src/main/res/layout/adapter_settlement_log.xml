@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10.7dp"
+        android:layout_marginBottom="10.7dp">
+
+        <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="15sp"
+            android:id="@+id/tv_date_time"
+            android:layout_marginStart="11.7dp"
+            android:layout_marginLeft="11.7dp"
+            android:text="mh,"
+            android:layout_weight="1"
+            android:textColor="#484848" />
+
+        <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="15sp"
+            android:id="@+id/tv_fee_amount"
+            android:layout_marginRight="11.7dp"
+            android:layout_marginEnd="11.7dp"
+            android:text="mh,"
+            android:textColor="@color/colorPrimaryDark"/>
+
+    </LinearLayout>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/view_gray"/>
+
+</LinearLayout>

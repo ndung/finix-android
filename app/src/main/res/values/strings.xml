@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Órale</string>
+    <string name="app_name">iZZyLōd</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="having_trouble">Having trouble? Go to Pin Login</string>
     <string name="login_with">Login with Touch ID</string>

@@ -44,7 +44,6 @@
             <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8.7dp"
                 android:textSize="13.3sp"
                 android:textColor="@color/text_black"
                 android:text="khgk"
@@ -53,7 +52,6 @@
             <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Light
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8.7dp"
                 android:textSize="11.7sp"
                 android:textColor="@color/text_gray"
                 android:id="@+id/tv_product_description"
@@ -81,7 +79,6 @@
             <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Regular
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8.7dp"
                 android:textSize="13.3sp"
                 android:textColor="#008489"
                 android:layout_gravity="right"
@@ -92,7 +89,6 @@
             <id.co.icg.reload.ui.customfonts.MyTextView_Roboto_Light
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8.7dp"
                 android:textSize="11.7sp"
                 android:layout_gravity="right"
                 android:gravity="right"

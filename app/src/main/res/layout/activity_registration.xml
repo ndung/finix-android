@@ -14,7 +14,7 @@
         android:elevation="1dp"
         android:orientation="vertical">
 
-        <include layout="@layout/toolbar_transacation" />
+        <include layout="@layout/toolbar_transaction" />
 
         <LinearLayout
             android:layout_width="match_parent"

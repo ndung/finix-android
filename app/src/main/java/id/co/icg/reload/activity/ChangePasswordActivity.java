@@ -42,6 +42,7 @@ public class ChangePasswordActivity extends BaseActivity {
     private TextView tvSave;
     private TextInputLayout tilOldPassword;
     private TextInputLayout tilNewPassword;
+    private TextInputLayout tilConfirmPassword;
 
     private AuthService authService;
 
@@ -65,8 +66,7 @@ public class ChangePasswordActivity extends BaseActivity {
 
         tilOldPassword = findViewById(R.id.til_old_password);
         tilNewPassword = findViewById(R.id.til_new_password);
-
-        //tilNewPassword.setHint(getString(R.string.password_hint));
+        tilConfirmPassword = findViewById(R.id.til_confirm_password);
 
         tvSave.setOnClickListener(v -> changePassword(etOldPassword.getText().toString(), etNewPassword.getText().toString(), etConfirmedNewPassword.getText().toString()));
 
@@ -84,7 +84,7 @@ public class ChangePasswordActivity extends BaseActivity {
             return;
         }
         if (TextUtils.isEmpty(confirmedNewPassword)){
-            tilNewPassword.setError("Ketik ulang password baru");
+            tilConfirmPassword.setError("Ketik ulang password baru");
             return;
         }
         if (!isValidPassword(newPassword)){

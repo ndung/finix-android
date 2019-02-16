@@ -64,12 +64,13 @@
         <activity android:name=".activity.AccountInformationActivity" />
         <activity android:name=".activity.ChangePasswordActivity" android:windowSoftInputMode="stateVisible|adjustResize"/>
         <activity android:name=".activity.PrinterActivity" />
-        <activity android:name=".activity.ChatActivity" />
+        <activity android:name=".activity.ChatActivity" android:windowSoftInputMode="stateVisible|adjustResize"/>
         <activity android:name=".activity.RedeemPointsActivity" />
         <activity android:name=".activity.RedeemLogActivity" />
         <activity android:name=".activity.SettlementLogActivity" />
         <activity android:name=".activity.DepositLogActivity" />
         <activity android:name=".activity.OtherRechargeInquiryActivity" />
+        <activity android:name=".activity.ContactUsActivity" />
         <activity android:name=".activity.ConvertToBalanceActivity" android:windowSoftInputMode="stateVisible|adjustResize"/>
         <activity android:name=".activity.DeviceActivity" android:theme="@android:style/Theme.Dialog"/>
 
